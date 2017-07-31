@@ -1,19 +1,8 @@
-//import { combineReducers } from 'react';
-
-//const rootReducer = combineReducers({
-	//textboxes: []
-//});
-
-const addTextBox = () => {
-	return {
-		type: 'ADD_TEXTBOX'	
-	}
-}
-
-const reducer = (state={textboxes: [1,2]}, action) => {
+const reducer = (state={textboxes: []}, action) => {
+	let textboxes = state.textboxes;
 	switch(action.type){
-		case ('ADD_TEXTBOX'):
-			//return {textboxes: }; add one textbox
+		case 'ADD_TEXTBOX':
+			return {textboxes: textboxes.concat("textbox")}
 		default:
 			return state;
 	}

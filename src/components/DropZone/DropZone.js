@@ -28,7 +28,7 @@ class DropZone extends React.Component {
 const mapStateToProps = state => {
   return {
     textboxes: state.textboxes
-  }
+  };
 }
 
-export default connect(mapStateToProps, null)(DropZone);
+export default connect(mapStateToProps)(DropZone);

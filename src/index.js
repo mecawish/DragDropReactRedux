@@ -14,7 +14,6 @@ class App extends React.Component {
 		super(props);
 
 		this.state = { 
-			//textboxes: [],
 			dragElement: null,
 			startX: 0,
 			startY: 0,
@@ -22,20 +21,9 @@ class App extends React.Component {
 			offsetY: 0 
 		};
 
-		this.onAddTextBoxClick = this.onAddTextBoxClick.bind(this);
 		this.onTextBoxMouseDown = this.onTextBoxMouseDown.bind(this);
 		this.onTextBoxMouseMove = this.onTextBoxMouseMove.bind(this);
 		this.onTextBoxMouseUp = this.onTextBoxMouseUp.bind(this);
-	}
-
-	onAddTextBoxClick(textbox) {
-		console.log(store.getState());
-		/*const textboxes = this.state.textboxes.slice();
-		textboxes.push(textbox);
-
-		this.setState({
-            textboxes: textboxes
-      	 });*/
 	}
 
 	onTextBoxMouseDown(e) {
@@ -108,9 +96,8 @@ class App extends React.Component {
 	render() {
 	    return (
 	    	<div>
-				<AddTextBoxButton onAddTextBoxClick={this.onAddTextBoxClick}/>
+				<AddTextBoxButton />
 				<DropZone 
-					//textboxes={this.state.textboxes}
 					onTextBoxMouseDown={this.onTextBoxMouseDown}
 					onTextBoxMouseMove={this.onTextBoxMouseMove}
 					onTextBoxMouseUp={this.onTextBoxMouseUp}/>
