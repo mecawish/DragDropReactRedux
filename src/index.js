@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './redux/reducers';
 import './index.css';
 import AddTextBoxButton from './components/AddTextBoxButton/AddTextBoxButton';
 import DropZone from './components/DropZone/DropZone';
+
+let store = createStore(reducer);
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = { 
-			textboxes: [],
+			//textboxes: [],
 			dragElement: null,
 			startX: 0,
 			startY: 0,
@@ -24,12 +29,13 @@ class App extends React.Component {
 	}
 
 	onAddTextBoxClick(textbox) {
-		const textboxes = this.state.textboxes.slice();
+		console.log(store.getState());
+		/*const textboxes = this.state.textboxes.slice();
 		textboxes.push(textbox);
 
 		this.setState({
             textboxes: textboxes
-      	 });
+      	 });*/
 	}
 
 	onTextBoxMouseDown(e) {
@@ -104,7 +110,7 @@ class App extends React.Component {
 	    	<div>
 				<AddTextBoxButton onAddTextBoxClick={this.onAddTextBoxClick}/>
 				<DropZone 
-					textboxes={this.state.textboxes}
+					//textboxes={this.state.textboxes}
 					onTextBoxMouseDown={this.onTextBoxMouseDown}
 					onTextBoxMouseMove={this.onTextBoxMouseMove}
 					onTextBoxMouseUp={this.onTextBoxMouseUp}/>
@@ -113,4 +119,4 @@ class App extends React.Component {
   	} 
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

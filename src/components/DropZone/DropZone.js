@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './DropZone.css';
 
 import TextBox from '../TextBox/TextBox';
@@ -24,4 +25,10 @@ class DropZone extends React.Component {
 	}
 }
 
-export default DropZone;
+const mapStateToProps = state => {
+  return {
+    textboxes: state.textboxes
+  }
+}
+
+export default connect(mapStateToProps, null)(DropZone);
