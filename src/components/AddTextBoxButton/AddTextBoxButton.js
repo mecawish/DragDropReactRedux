@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import addTextBox from '../../redux/actions';
+import { addTextBox } from '../../redux/actions';
 import './AddTextBoxButton.css';
 
 class AddTextBoxButton extends React.Component {
@@ -14,10 +14,17 @@ class AddTextBoxButton extends React.Component {
   	} 
 }
 
+/*function mapStateToProps(state) {
+	return {
+		textboxes: state.textboxes
+	}
+}*/
+
 function mapDispatchToProps(dispatch) {
   return {
     onButtonClick: () => dispatch(addTextBox)
   };
 }
 
+//export default connect(mapStateToProps, mapDispatchToProps)(AddTextBoxButton);
 export default connect(null, mapDispatchToProps)(AddTextBoxButton); 
