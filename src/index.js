@@ -7,7 +7,7 @@ import './index.css';
 import AddTextBoxButton from './components/AddTextBoxButton/AddTextBoxButton';
 import DropZone from './components/DropZone/DropZone';
 
-let store = createStore(reducer);
+let store = createStore(reducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
 
 class App extends React.Component {
 	constructor(props) {
