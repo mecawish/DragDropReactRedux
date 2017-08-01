@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './redux/reducers';
+import rootReducer from './redux/reducers';
 import './index.css';
 import AddTextBoxButton from './components/AddTextBoxButton/AddTextBoxButton';
 import DropZone from './components/DropZone/DropZone';
 
-let store = createStore(reducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
+let store = createStore(rootReducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
 
 class App extends React.Component {
-	constructor(props) {
+	/*constructor(props) {
 		super(props);
 
 		this.state = { 
@@ -91,16 +91,17 @@ class App extends React.Component {
 				dragElement: null	
 			});
 		}
-	}
+	}*/
 
 	render() {
 	    return (
 	    	<div>
 				<AddTextBoxButton />
 				<DropZone 
-					onTextBoxMouseDown={this.onTextBoxMouseDown}
-					onTextBoxMouseMove={this.onTextBoxMouseMove}
-					onTextBoxMouseUp={this.onTextBoxMouseUp}/>
+					//onTextBoxMouseDown={this.onTextBoxMouseDown}
+					//onTextBoxMouseMove={this.onTextBoxMouseMove}
+					//onTextBoxMouseUp={this.onTextBoxMouseUp}
+				/>
 			</div>
 	    );
   	} 

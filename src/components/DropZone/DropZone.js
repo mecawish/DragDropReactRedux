@@ -10,9 +10,9 @@ class DropZone extends React.Component {
 			return (
 				<TextBox
 					key={index}
-					onTextBoxMouseDown={this.props.onTextBoxMouseDown}
-					onTextBoxMouseMove={this.props.onTextBoxMouseMove}
-					onTextBoxMouseUp={this.props.onTextBoxMouseUp}
+					//onTextBoxMouseDown={this.props.onTextBoxMouseDown}
+					//onTextBoxMouseMove={this.props.onTextBoxMouseMove}
+					//onTextBoxMouseUp={this.props.onTextBoxMouseUp}
 				/>
 			);
 		});
@@ -27,7 +27,7 @@ class DropZone extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    textboxes: state.textboxes
+    textboxes: state.textboxesReducer.textboxes
   };
 }
 

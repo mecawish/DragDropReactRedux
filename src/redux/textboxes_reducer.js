@@ -1,4 +1,4 @@
-const textboxes_reducer = (state={textboxes: []}, action) => {
+const textboxesReducer = (state={textboxes: []}, action) => {
 	let textboxes = state.textboxes;
 	switch(action.type){
 		case 'ADD_TEXTBOX':
@@ -8,4 +8,4 @@ const textboxes_reducer = (state={textboxes: []}, action) => {
 	}
 }
 
-export default textboxes_reducer;
+export default textboxesReducer;

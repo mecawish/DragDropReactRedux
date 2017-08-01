@@ -1,25 +1,22 @@
 {
-  "name": "simplest-redux-example",
+  "name": "drag-drop-react-redux",
   "version": "0.0.0",
-  "description": "simplest redux + react example",
+  "description": "drag and drop using redux + react",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jackielii/simplest-redux-example.git"
+    "url": "git+https://github.com/mecawish/DragDropReactRedux.git"
   },
   "keywords": [
     "redux",
     "react"
   ],
-  "author": "Jackie Li",
+  "author": "Meliza Caguimbal",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jackielii/simplest-redux-example/issues"
-  },
-  "homepage": "https://github.com/jackielii/simplest-redux-example#readme",
+  "homepage": "https://github.com/mecawish/DragDropReactRedux.git",
   "dependencies": {
     "autoprefixer-loader": "^3.2.0",
     "css-loader": "^0.28.4",
@@ -28,8 +25,7 @@
     "react-dom": "^0.14.7",
     "react-redux": "^4.0.0",
     "redux": "^3.0.4",
-    "style-loader": "^0.18.2",
-    "webpack": "^1.15.0"
+    "style-loader": "^0.18.2"
   },
   "devDependencies": {
     "babel-core": "^6.0.16",
@@ -40,7 +36,7 @@
     "babel-preset-react": "^6.0.15",
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^3.3.1",
-    "webpack": "^1.12.2",
+    "webpack": "^2.2.1",
     "webpack-dev-server": "^1.12.1"
   }
 }

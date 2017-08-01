@@ -14,17 +14,22 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
+      use: ['react-hot-loader', 'babel-loader'],
       exclude: /node_modules/,
       include: __dirname
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
-    }]}
+      exclude: /node_modules/,
+      use: [
+            "style-loader",
+            "css-loader"
+        ]
+    }]
+  }
 };

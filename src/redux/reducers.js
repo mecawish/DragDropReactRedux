@@ -1,24 +1,8 @@
-/*import { combineReducers } from 'redux';
-import textboxes_reducer from './textboxes_reducer';
-import dragElement_reducer from './dragElement_reducer';
+import { combineReducers } from 'redux';
+import textboxesReducer from './textboxes_reducer';
 
-const DragAndDrop = combineReducers({
-  textboxes_reducer
-  dragElement_reducer
+const rootReducer = combineReducers({
+  textboxesReducer
 })
 
-export default DragAndDrop;*/
-
-import TextBox from '../components/TextBox/TextBox';
-
-const reducer = (state={textboxes: []}, action) => {
-	let textboxes = state.textboxes;
-	switch(action.type){
-		case 'ADD_TEXTBOX':
-			return {textboxes: textboxes.concat(TextBox)}
-		default:
-			return state;
-	}
-}
-
-export default reducer;
+export default rootReducer;
