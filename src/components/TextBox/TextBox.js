@@ -1,16 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { mouseDown } from '../../redux/actions';
 import './TextBox.css';
 
 import DeleteButton from '../DeleteButton/DeleteButton';
 
 class TextBox extends React.Component {	
 	render() {
-		//const onTextBoxMouseDown = this.props.
+		const onTextBoxMouseDown = this.props.onTextBoxMouseDown;
 
 	    return (
 	    	<div 	
 	    		className="drag"
-	    		//onMouseDown={() => onTextBoxMouseDown()}
+	    		onMouseDown={(el) => onTextBoxMouseDown()}
 	    		//onMouseMove={this.props.onTextBoxMouseMove}
 	    		//onMouseUp={this.props.onTextBoxMouseUp}
 	    	>
@@ -21,4 +23,10 @@ class TextBox extends React.Component {
   	} 
 }
 
-export default TextBox; 
+function mapDispatchToProps(dispatch){
+	return {
+    onTextBoxMouseDown: (el) => dispatch(mouseDown)
+  };
+}
+
+export default connect(null, mapDispatchToProps)(TextBox); 

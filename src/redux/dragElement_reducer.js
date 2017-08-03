@@ -10,7 +10,9 @@ const dragElementReducer = (state=initialState, action) => {
 	let textboxes = state.textboxes;
 	switch(action.type){
 		case 'SELECT_ELEMENT':
-			//return
+			return {
+				dragElement: el.target
+			}
 		case 'MOVE_ELEMENT':
 			//return
 		case 'UNSELECT_ELEMENT':
