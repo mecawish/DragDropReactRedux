@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DeleteButton from '../DeleteButton/DeleteButton';
-import { mouseDown, mouseUp } from '../../redux/actions';
+import { mouseDown, mouseUp, editText } from '../../redux/actions';
 import './TextBox.css';
 
 class TextBox extends React.Component {	
@@ -72,7 +72,12 @@ class TextBox extends React.Component {
 	    		onMouseMove={e => this.textBoxMouseMove(e)}
 	    		onMouseUp={e => this.textBoxMouseUp(e)}
 	    	>
-	    		<div className="editText" contentEditable="true" spellCheck="false"></div>
+	    		<div
+	    			className="editText"
+	    			contentEditable="true"
+	    			spellCheck="false"
+	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
+	    		></div>
 	    		<DeleteButton />
 	    	</div>
 	    );
@@ -92,7 +97,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
     	onTextBoxMouseDown: e => dispatch(mouseDown(e)),
-    	onTextBoxMouseUp: e => dispatch(mouseUp(e))
+    	onTextBoxMouseUp: e => dispatch(mouseUp(e)),
+    	onTextChange: text => dispatch(editText(text))
   };
 }
 

@@ -17,3 +17,10 @@ export const mouseUp = e => {
 		payload: e
 	}
 };
+
+export const editText = text => {
+	return {
+		type: 'EDIT_TEXT',
+		payload: text
+	}
+};

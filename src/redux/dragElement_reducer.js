@@ -1,3 +1,9 @@
+/*import undoable, { distinctState } from 'redux-undo';
+
+const undoableDragElementReducer = undoable(dragElementReducer, {
+  filter: distinctState()
+})*/
+
 const initialState = {
 	dragElement: null,
 	startX: 0,
@@ -6,7 +12,7 @@ const initialState = {
 	offsetY: 0 
 }
 
-const dragElementReducer = (state=initialState, action) => {
+const dragElementReducer = (state = initialState, action) => {
 	const e = action.payload;
 	switch(action.type){
 		case 'SELECT_ELEMENT':
@@ -19,7 +25,9 @@ const dragElementReducer = (state=initialState, action) => {
 			}
 		case 'UNSELECT_ELEMENT':
 			return {
-				dragElement: null
+				dragElement: null,
+				offsetX: e.target.offsetLeft,
+				offsetY: e.target.offsetTop
 			} 
 		default:
 			return state;
@@ -27,3 +35,4 @@ const dragElementReducer = (state=initialState, action) => {
 }
 
 export default dragElementReducer;
+//export default undoableDragElementReducer;

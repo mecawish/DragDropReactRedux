@@ -13,6 +13,7 @@ class DropZone extends React.Component {
 
 		return(
 			<div id="dropZone">
+				<div>{this.props.inputText}</div>
 				{textboxes}
 			</div>
 		);
@@ -21,7 +22,8 @@ class DropZone extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    textboxes: state.textboxes
+    textboxes: state.textboxes,
+    inputText: state.inputText
   };
 }
 
