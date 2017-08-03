@@ -1,4 +1,4 @@
-import undoable, { distinctState } from 'redux-undo';
+//import undoable, { distinctState } from 'redux-undo';
 
 const inputTextReducer = (state = "", action) => {
 	switch(action.type){
@@ -9,8 +9,9 @@ const inputTextReducer = (state = "", action) => {
 	}
 }
 
-const undoableInputTextReducer = undoable(inputTextReducer, {
+/*const undoableInputTextReducer = undoable(inputTextReducer, {
   filter: distinctState()
 })
 
-export default undoableInputTextReducer;
+export default undoableInputTextReducer;*/
+export default inputTextReducer;

@@ -5,9 +5,9 @@ import './DropZone.css';
 
 class DropZone extends React.Component {
 	render() {
-		const textboxes = this.props.textboxes.map((textbox, index) => {
+		const textboxes = this.props.textboxes.map((textboxId) => {
 			return (
-				<TextBox key={index} />
+				<TextBox key={textboxId} textboxId={textboxId}/>
 			);
 		});
 
@@ -22,8 +22,8 @@ class DropZone extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    textboxes: state.textboxes,
-    inputText: state.inputText.present
+    textboxes: state.textboxes.present,
+    inputText: state.inputText
   };
 }
 

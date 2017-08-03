@@ -6,10 +6,10 @@ import { ActionCreators } from 'redux-undo';
 const UndoRedo = ({ onUndo, onRedo }) => (
   <p>
     <button onClick={onUndo}>
-      Undo Edit Text
+      Undo Add
     </button>
     <button onClick={onRedo}>
-      Redo Edit Text
+      Redo Add
     </button>
   </p>
 );

@@ -1,6 +1,8 @@
+let textBoxId = 0;
 export const addTextBox = () => {
 	return {
-		type: 'ADD_TEXTBOX'	
+		type: 'ADD_TEXTBOX',
+		id: textBoxId++
 	}
 };
 

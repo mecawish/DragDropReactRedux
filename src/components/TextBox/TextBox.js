@@ -77,7 +77,7 @@ class TextBox extends React.Component {
 	    			contentEditable="true"
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
-	    		>{this.props.inputText.present}</div>
+	    		>{this.props.textboxId}</div>
 	    		<DeleteButton />
 	    	</div>
 	    );
