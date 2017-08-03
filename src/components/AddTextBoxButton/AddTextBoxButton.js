@@ -9,22 +9,15 @@ class AddTextBoxButton extends React.Component {
 		const onButtonClick = this.props.onButtonClick;
 
 	    return (
-	    	<button onClick={onButtonClick}>Add TextBox</button>
+	    	<button onClick={() => onButtonClick()}>Add TextBox</button>
 	    );
   	} 
 }
 
-/*function mapStateToProps(state) {
-	return {
-		textboxes: state.textboxes
-	}
-}*/
-
 function mapDispatchToProps(dispatch) {
   return {
-    onButtonClick: () => dispatch(addTextBox)
+    onButtonClick: () => dispatch(addTextBox())
   };
 }
 
-//export default connect(mapStateToProps, mapDispatchToProps)(AddTextBoxButton);
 export default connect(null, mapDispatchToProps)(AddTextBoxButton); 

@@ -12,7 +12,7 @@ class TextBox extends React.Component {
 	    return (
 	    	<div 	
 	    		className="drag"
-	    		onMouseDown={(el) => onTextBoxMouseDown()}
+	    		onMouseDown={el => onTextBoxMouseDown(el)}
 	    		//onMouseMove={this.props.onTextBoxMouseMove}
 	    		//onMouseUp={this.props.onTextBoxMouseUp}
 	    	>
@@ -25,7 +25,7 @@ class TextBox extends React.Component {
 
 function mapDispatchToProps(dispatch){
 	return {
-    onTextBoxMouseDown: (el) => dispatch(mouseDown)
+    	onTextBoxMouseDown: el => dispatch(mouseDown(el))
   };
 }
 

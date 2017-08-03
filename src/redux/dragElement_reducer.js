@@ -7,11 +7,15 @@ const initialState = {
 }
 
 const dragElementReducer = (state=initialState, action) => {
-	let textboxes = state.textboxes;
+	const e = action.payload;
 	switch(action.type){
 		case 'SELECT_ELEMENT':
 			return {
-				dragElement: el.target
+				dragElement: e.target,
+				startX: e.pageX, 
+				startY: e.pageY,
+				offsetX: e.target.offsetLeft,
+				offsetY: e.target.offsetTop
 			}
 		case 'MOVE_ELEMENT':
 			//return
@@ -22,4 +26,4 @@ const dragElementReducer = (state=initialState, action) => {
 	}
 }
 
-export default textboxesReducer;
+export default dragElementReducer;
