@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
-import './index.css';
 import AddTextBoxButton from './components/AddTextBoxButton/AddTextBoxButton';
 import DropZone from './components/DropZone/DropZone';
+import './index.css';
 
 let store = createStore(rootReducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
 

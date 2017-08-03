@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import DeleteButton from '../DeleteButton/DeleteButton';
 import { mouseDown, mouseUp } from '../../redux/actions';
 import './TextBox.css';
-
-import DeleteButton from '../DeleteButton/DeleteButton';
 
 class TextBox extends React.Component {	
 	textBoxMouseDown(e){
@@ -29,11 +28,12 @@ class TextBox extends React.Component {
 			const dropZoneBottomLimit = dropZone.offsetHeight + dropZone.offsetTop - marginBottom;
 
 			const dragElement= this.props.dragElement;
-			dragElement.style.cursor = 'move';
 			const newLeft = this.props.offsetX + e.pageX - this.props.startX;
 			const newTop = this.props.offsetY + e.pageY - this.props.startY;
 			const rightLimit = dropZoneRightLimit - dragElement.offsetWidth;
 			const bottomLimit = dropZoneBottomLimit - dragElement.offsetHeight;
+
+			dragElement.style.cursor = 'move';
 
 			if (newLeft > rightLimit) {
 				dragElement.style.left = rightLimit + 'px';
@@ -56,10 +56,10 @@ class TextBox extends React.Component {
 	textBoxMouseUp(e){
 		const dragElement = this.props.dragElement;
 		if (dragElement) {
+			dragElement.style.cursor = 'default';
 			const el = dragElement.firstChild;
 			el.setAttribute('contenteditable', true);
 			el.style.cursor = 'text';
-			dragElement.style.cursor = 'default';
 			this.props.onTextBoxMouseUp(e);
 		}
 	}
@@ -89,7 +89,7 @@ const mapStateToProps = state => {
   };
 }
 
-function mapDispatchToProps(dispatch){
+const mapDispatchToProps = dispatch => {
 	return {
     	onTextBoxMouseDown: e => dispatch(mouseDown(e)),
     	onTextBoxMouseUp: e => dispatch(mouseUp(e))

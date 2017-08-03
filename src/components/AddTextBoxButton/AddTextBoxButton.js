@@ -5,15 +5,13 @@ import './AddTextBoxButton.css';
 
 class AddTextBoxButton extends React.Component {
 	render() {
-		const onButtonClick = this.props.onButtonClick;
-
 	    return (
-	    	<button onClick={() => onButtonClick()}>Add TextBox</button>
+	    	<button onClick={() => this.props.onButtonClick()}>Add TextBox</button>
 	    );
   	} 
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps= dispatch => {
   return {
     onButtonClick: () => dispatch(addTextBox())
   };
