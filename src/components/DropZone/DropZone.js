@@ -24,7 +24,7 @@ class DropZone extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    textboxes: state.textboxesReducer.textboxes
+    textboxes: state.textboxes
   };
 }
 

@@ -1,8 +1,7 @@
-const textboxesReducer = (state={textboxes: []}, action) => {
-	let textboxes = state.textboxes;
+const textboxesReducer = (state = [], action) => {
 	switch(action.type){
 		case 'ADD_TEXTBOX':
-			return {textboxes: textboxes.concat("textbox")}
+			return state.concat("textbox")
 		default:
 			return state;
 	}
