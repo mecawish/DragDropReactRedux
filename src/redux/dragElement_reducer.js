@@ -18,7 +18,7 @@ const dragElementReducer = (state=initialState, action) => {
 				offsetY: e.target.offsetTop
 			}
 		case 'MOVE_ELEMENT':
-			//return
+			//
 		case 'UNSELECT_ELEMENT':
 			//return 
 		default:

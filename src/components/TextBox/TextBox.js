@@ -6,14 +6,22 @@ import './TextBox.css';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
 class TextBox extends React.Component {	
-	render() {
-		const onTextBoxMouseDown = this.props.onTextBoxMouseDown;
+	onTextBoxMouseMove(e){
+		if (this.props.dragElement){
+			const dragElement= this.props.dragElement;
+			const newLeft = this.props.offsetX + e.pageX - this.props.startX;
+			const newTop = this.props.offsetY + e.pageY - this.props.startY;
+			dragElement.style.left = newLeft + 'px';
+			dragElement.style.top = newTop + 'px';	
+		}
+	}
 
+	render() {
 	    return (
 	    	<div 	
 	    		className="drag"
-	    		onMouseDown={el => onTextBoxMouseDown(el)}
-	    		//onMouseMove={this.props.onTextBoxMouseMove}
+	    		onMouseDown={e => this.props.onTextBoxMouseDown(e)}
+	    		onMouseMove={e => this.onTextBoxMouseMove(e)}
 	    		//onMouseUp={this.props.onTextBoxMouseUp}
 	    	>
 	    		<div className="editText" contentEditable="true" spellCheck="false"></div>
@@ -23,10 +31,21 @@ class TextBox extends React.Component {
   	} 
 }
 
-function mapDispatchToProps(dispatch){
-	return {
-    	onTextBoxMouseDown: el => dispatch(mouseDown(el))
+const mapStateToProps = state => {
+  return {
+    dragElement: state.dragElementReducer.dragElement,
+    startX: state.dragElementReducer.startX,
+    startY: state.dragElementReducer.startY,
+    offsetX: state.dragElementReducer.offsetX,
+    offsetY: state.dragElementReducer.offsetY
   };
 }
 
-export default connect(null, mapDispatchToProps)(TextBox); 
+function mapDispatchToProps(dispatch){
+	return {
+    	onTextBoxMouseDown: e => dispatch(mouseDown(e))
+    	//onTextBoxMouseMove: e => dispatch(mouseMove(e))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TextBox); 
