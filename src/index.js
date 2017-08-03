@@ -8,7 +8,6 @@ import AddTextBoxButton from './components/AddTextBoxButton/AddTextBoxButton';
 import DropZone from './components/DropZone/DropZone';
 
 let store = createStore(rootReducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
-console.log(store.getState());
 
 class App extends React.Component {
 	/*constructor(props) {
@@ -94,10 +93,6 @@ class App extends React.Component {
 		}
 	}*/
 
-	onClick(){
-		console.log(store.getState());
-	}
-
 	render() {
 	    return (
 	    	<div>
@@ -107,7 +102,6 @@ class App extends React.Component {
 					//onTextBoxMouseMove={this.onTextBoxMouseMove}
 					//onTextBoxMouseUp={this.onTextBoxMouseUp}
 				/>
-				<button onClick={this.onClick}>GET STATE</button>
 			</div>
 	    );
   	} 
