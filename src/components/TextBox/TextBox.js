@@ -77,7 +77,7 @@ class TextBox extends React.Component {
 	    			contentEditable="true"
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
-	    		></div>
+	    		>{this.props.inputText.present}</div>
 	    		<DeleteButton />
 	    	</div>
 	    );
@@ -90,7 +90,8 @@ const mapStateToProps = state => {
     startX: state.dragElementReducer.startX,
     startY: state.dragElementReducer.startY,
     offsetX: state.dragElementReducer.offsetX,
-    offsetY: state.dragElementReducer.offsetY
+    offsetY: state.dragElementReducer.offsetY,
+    inputText: state.inputText.present
   };
 }
 

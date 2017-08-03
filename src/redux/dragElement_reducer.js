@@ -1,8 +1,4 @@
-/*import undoable, { distinctState } from 'redux-undo';
-
-const undoableDragElementReducer = undoable(dragElementReducer, {
-  filter: distinctState()
-})*/
+import undoable, { distinctState } from 'redux-undo';
 
 const initialState = {
 	dragElement: null,
@@ -34,5 +30,10 @@ const dragElementReducer = (state = initialState, action) => {
 	}
 }
 
+/*const undoableDragElementReducer = undoable(dragElementReducer, {
+  filter: distinctState()
+})
+
+export default undoableDragElementReducer;*/
+
 export default dragElementReducer;
-//export default undoableDragElementReducer;

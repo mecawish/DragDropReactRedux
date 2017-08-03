@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
 import AddTextBoxButton from './components/AddTextBoxButton/AddTextBoxButton';
 import DropZone from './components/DropZone/DropZone';
+import UndoRedo from './components/UndoRedoEditText/UndoRedoEditText';
 import './index.css';
 
 let store = createStore(rootReducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
@@ -14,6 +15,7 @@ class App extends React.Component {
 	    return (
 	    	<div>
 				<AddTextBoxButton />
+				<UndoRedo />
 				<DropZone />
 			</div>
 	    );

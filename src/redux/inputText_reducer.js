@@ -1,4 +1,6 @@
-const inputTextReducer = (state = "Meliza", action) => {
+import undoable, { distinctState } from 'redux-undo';
+
+const inputTextReducer = (state = "", action) => {
 	switch(action.type){
 		case 'EDIT_TEXT':
 			return action.payload
@@ -7,4 +9,8 @@ const inputTextReducer = (state = "Meliza", action) => {
 	}
 }
 
-export default inputTextReducer;
+const undoableInputTextReducer = undoable(inputTextReducer, {
+  filter: distinctState()
+})
+
+export default undoableInputTextReducer;
