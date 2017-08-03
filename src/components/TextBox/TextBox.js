@@ -7,8 +7,10 @@ import DeleteButton from '../DeleteButton/DeleteButton';
 
 class TextBox extends React.Component {	
 	textBoxMouseDown(e){
-		this.props.onTextBoxMouseDown(e);
-		e.target.firstChild.setAttribute('contenteditable', false);
+		if (e.target.classList.contains('drag')){
+			this.props.onTextBoxMouseDown(e);
+			e.target.firstChild.setAttribute('contenteditable', false);
+		}
 	}
 
 	textBoxMouseMove(e){
