@@ -11,9 +11,9 @@ export const mouseDown = e => {
 	}
 };
 
-export const mouseMove = e => {
+export const mouseUp = e => {
 	return {
-		type: 'MOVE_ELEMENT',
+		type: 'UNSELECT_ELEMENT',
 		payload: e
 	}
 };

@@ -17,10 +17,10 @@ const dragElementReducer = (state=initialState, action) => {
 				offsetX: e.target.offsetLeft,
 				offsetY: e.target.offsetTop
 			}
-		case 'MOVE_ELEMENT':
-			//
 		case 'UNSELECT_ELEMENT':
-			//return 
+			return {
+				dragElement: null
+			} 
 		default:
 			return state;
 	}

@@ -10,9 +10,6 @@ class DropZone extends React.Component {
 			return (
 				<TextBox
 					key={index}
-					//onTextBoxMouseDown={this.props.onTextBoxMouseDown}
-					//onTextBoxMouseMove={this.props.onTextBoxMouseMove}
-					//onTextBoxMouseUp={this.props.onTextBoxMouseUp}
 				/>
 			);
 		});
