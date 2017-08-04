@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import textboxesReducer from './textboxes_reducer';
+import textBoxesReducer from './textBoxes_reducer';
 import dragElementReducer from './dragElement_reducer';
 import inputTextReducer from './inputText_reducer';
 
 const rootReducer = combineReducers({
-  textboxes: textboxesReducer,
+  textboxes: textBoxesReducer,
   dragElementReducer,
   inputText: inputTextReducer
 })

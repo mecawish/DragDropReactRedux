@@ -1,8 +1,16 @@
-let textBoxId = 0;
+let textBoxId = 1;
 export const addTextBox = () => {
 	return {
 		type: 'ADD_TEXTBOX',
 		id: textBoxId++
+	}
+};
+
+export const deleteTextBox = (id) => {
+	console.log(id);
+	return {
+		type: 'DELETE_TEXTBOX',
+		id: textBoxId
 	}
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DeleteButton from '../DeleteButton/DeleteButton';
-import { mouseDown, mouseUp, editText } from '../../redux/actions';
+import { mouseDown, mouseUp, editText, deleteTextBox } from '../../redux/actions';
 import './TextBox.css';
 
 class TextBox extends React.Component {	
@@ -77,8 +77,9 @@ class TextBox extends React.Component {
 	    			contentEditable="true"
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
-	    		>{this.props.textboxId}</div>
+	    		></div>
 	    		<DeleteButton />
+	    		<div id="textBoxName">TextBox {this.props.textboxId}</div>
 	    	</div>
 	    );
   	} 

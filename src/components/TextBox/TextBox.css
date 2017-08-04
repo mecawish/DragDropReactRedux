@@ -21,3 +21,11 @@
 	width: 90%;
 	cursor: text;
 }
+
+#textBoxName {
+	background-color: transparent;
+}
+
+#textBoxName span {
+	color: black;
+}
