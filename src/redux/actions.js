@@ -1,4 +1,4 @@
-let textBoxId = 1;
+let textBoxId = 0;
 export const addTextBox = () => {
 	return {
 		type: 'ADD_TEXTBOX',
@@ -7,10 +7,9 @@ export const addTextBox = () => {
 };
 
 export const deleteTextBox = (id) => {
-	console.log(id);
 	return {
 		type: 'DELETE_TEXTBOX',
-		id: textBoxId
+		id: id
 	}
 };
 

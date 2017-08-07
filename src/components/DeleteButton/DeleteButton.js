@@ -1,18 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { deleteTextBox } from '../../redux/actions';
 import './DeleteButton.css';
 
 class DeleteButton extends React.Component {
-	onButtonClick(e){
-		e.target.parentNode.remove();
-	}
-
 	render() {
 	    return (
-	    	<div className="delete"
-	    	onClick={this.onButtonClick}
-	    	>x</div>
+	    	<div 	className="delete"
+	    			onClick={() => this.props.onButtonClick(this.props.parentId)}>
+	    			x
+	    	</div>
 	    );
   	} 
 }
 
-export default DeleteButton;
+const mapDispatchToProps= dispatch => {
+  return {
+    onButtonClick: id => dispatch(deleteTextBox(id))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(DeleteButton);

@@ -78,7 +78,7 @@ class TextBox extends React.Component {
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
 	    		></div>
-	    		<DeleteButton />
+	    		<DeleteButton parentId={this.props.textboxId}/>
 	    		<div id="textBoxName">TextBox {this.props.textboxId}</div>
 	    	</div>
 	    );
