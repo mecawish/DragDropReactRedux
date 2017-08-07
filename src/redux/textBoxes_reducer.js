@@ -12,8 +12,7 @@ const textBoxesReducer = (state = [], action) => {
 			]
 		case 'DELETE_TEXTBOX':
 			return [
-				...state.slice(0, action.id), 
-				...state.slice(action.id + 1)
+				...state.filter(textbox => { return textbox.id !== action.id })
 			]
 		default:
 			return state;
