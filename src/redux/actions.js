@@ -33,3 +33,9 @@ export const editText = text => {
 		payload: text
 	}
 };
+
+export const showButtons = () => {
+	return {
+		type: 'SHOW_BUTTONS'
+	}
+};

@@ -20,7 +20,7 @@ const textBoxesReducer = (state = [], action) => {
 }
 
 const undoableTextBoxesReducer = undoable(textBoxesReducer, {
-  filter: distinctState()
+  	filter: distinctState()
 })
 
 export default undoableTextBoxesReducer;

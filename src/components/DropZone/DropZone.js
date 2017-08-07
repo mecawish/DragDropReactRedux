@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TextBox from '../TextBox/TextBox';
+import { showButtons } from '../../redux/actions';
 import './DropZone.css';
 
 class DropZone extends React.Component {
@@ -18,6 +19,10 @@ class DropZone extends React.Component {
 			</div>
 		);
 	}
+
+	componentDidUpdate() {
+		this.props.showButtons();
+	}
 }
 
 const mapStateToProps = state => {
@@ -27,4 +32,10 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps)(DropZone);
+const mapDispatchToProps= dispatch => {
+  return {
+    showButtons: () => dispatch(showButtons())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DropZone);
