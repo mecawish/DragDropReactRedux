@@ -7,6 +7,7 @@ const HappyPack = require('happypack');
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
     entry: [
+        'babel-polyfill',
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
         './src/index'
@@ -24,16 +25,45 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new UglifyJSPlugin(),
         new HappyPack({
-            loaders: [
-              'babel-loader'
-            ]
+            loaders: [{
+                path: 'babel-loader',
+                query: {
+                    plugins: [
+                        'babel-plugin-add-module-exports',
+                        'babel-plugin-syntax-async-functions',
+                        'babel-plugin-syntax-dynamic-import',
+                        'babel-plugin-transform-object-rest-spread',
+                        'babel-plugin-transform-regenerator',
+                        'babel-plugin-transform-runtime'
+                    ],
+                    presets: ['es2015', 'react', 'stage-0'],
+                    cacheDirectory: false,
+                },
+            }]
         })
     ],
     module: {
         rules: [{
             test: /\.js$/,
-            use: ['react-hot-loader', 'happypack/loader'],
             exclude: /node_modules/,
+            //use: ['react-hot-loader', 'happypack/loader'],
+            use: [{
+                loader: 'happypack/loader?id=loader0',
+                options: {
+                    presets: ['react', 'es2015', 'stage-0'],
+                    plugins: [
+                                'transform-regenerator',
+                                'add-module-exports',
+                                'syntax-async-functions',
+                                'transform-object-rest-spread',
+                                'syntax-dynamic-import',
+                                'transform-runtime', {
+                                    "polyfill": false,
+                                    "regenerator": true
+                                }
+                            ],
+                }
+            }],
             include: __dirname
         },
         {

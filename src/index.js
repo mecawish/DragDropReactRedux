@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './redux/sagas'
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
 import Container from './components/Container/Container';
 
-let store = createStore(rootReducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
+const sagaMiddleware = createSagaMiddleware();
+
+let store = createStore(rootReducer, window.devToolsExtension ? window.devToolsExtension() : undefined, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
 
 class App extends React.Component {
 	render() {

@@ -2,14 +2,16 @@ let textBoxId = 0;
 export const addTextBox = () => {
 	return {
 		type: 'ADD_TEXTBOX',
-		id: textBoxId++
+		id: textBoxId++, 
+		text: "added"
 	}
 };
 
 export const deleteTextBox = (id) => {
 	return {
 		type: 'DELETE_TEXTBOX',
-		id: id
+		id: id,
+		text: "deleted"
 	}
 };
 
@@ -37,5 +39,18 @@ export const editText = text => {
 export const showButtons = () => {
 	return {
 		type: 'SHOW_BUTTONS'
+	}
+};
+
+export const showNotification = text => {
+	return {
+		type: 'SHOW_NOTIFICATION',
+		text: text
+	}
+};
+
+export const hideNotification = () => {
+	return {
+		type: 'HIDE_NOTIFICATION'
 	}
 };
