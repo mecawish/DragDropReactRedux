@@ -3,7 +3,7 @@ export const addTextBox = () => {
 	return {
 		type: 'ADD_TEXTBOX',
 		id: textBoxId++, 
-		text: "added"
+		text: "You added a textbox!!"
 	}
 };
 
@@ -11,7 +11,7 @@ export const deleteTextBox = (id) => {
 	return {
 		type: 'DELETE_TEXTBOX',
 		id: id,
-		text: "deleted"
+		text: "You deleted a textbox!"
 	}
 };
 

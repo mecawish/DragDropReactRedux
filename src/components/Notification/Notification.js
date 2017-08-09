@@ -5,7 +5,7 @@ import './Notification.css';
 class Notification extends React.Component {
 	render(){
 		return (
-			<div className="notif">You {this.props.text} a textbox!</div>
+			<div className="notif">{this.props.text}</div>
 		);
 	}
 }
