@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { deleteTextBox } from '../../redux/actions';
 import './DeleteButton.css';
 
@@ -12,6 +13,10 @@ class DeleteButton extends React.Component {
 	    	</div>
 	    );
   	} 
+}
+
+DeleteButton.propTypes = {
+	parentId: PropTypes.number.isRequired
 }
 
 const mapDispatchToProps= dispatch => {

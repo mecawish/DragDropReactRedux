@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import { mouseDown, mouseUp, editText, deleteTextBox } from '../../redux/actions';
 import './TextBox.css';
@@ -84,6 +85,10 @@ class TextBox extends React.Component {
 	    	</div>
 	    );
   	} 
+}
+
+TextBox.propTypes = {
+	textboxId: PropTypes.number.isRequired,
 }
 
 const mapStateToProps = state => {

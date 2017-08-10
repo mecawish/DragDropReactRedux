@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './Notification.css';
 
 class Notification extends React.Component {
@@ -9,5 +10,9 @@ class Notification extends React.Component {
 		);
 	}
 }
+
+Notification.propTypes = {
+	text: PropTypes.string.isRequired
+};
 
 export default Notification;
