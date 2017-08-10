@@ -65,6 +65,7 @@ class TextBox extends React.Component {
 	}
 
 	render() {
+		const { textboxId } = this.props;
 	    return (
 	    	<div 	
 	    		className="drag"
@@ -78,8 +79,8 @@ class TextBox extends React.Component {
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
 	    		></div>
-	    		<DeleteButton parentId={this.props.textboxId}/>
-	    		<div id="textBoxName">TextBox {this.props.textboxId}</div>
+	    		<DeleteButton parentId={textboxId}/>
+	    		<div id="textBoxName">TextBox {textboxId}</div>
 	    	</div>
 	    );
   	} 

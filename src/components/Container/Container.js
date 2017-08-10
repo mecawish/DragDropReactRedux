@@ -8,12 +8,12 @@ import './container.css';
 
 class Container extends React.Component {
 	render() {
-		const showUndoRedo = this.props.showUndoRedo;
-		const notification = this.props.notification;
+		const { showUndoRedo, notification, text } = this.props;
+
 	    return (
 	    	<div>
 				<AddTextBoxButton />			
-				{ notification && <Notification text={this.props.text} /> }
+				{ notification && <Notification text={text} /> }
 				{ showUndoRedo ? <UndoRedo /> : <div className="placeHolder"></div> }
 				<DropZone />
 			</div>
