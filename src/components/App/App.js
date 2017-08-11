@@ -4,7 +4,7 @@ import AddTextBoxButton from '../AddTextBoxButton/AddTextBoxButton';
 import DropZone from '../DropZone/DropZone';
 import UndoRedo from '../UndoRedo/UndoRedo';
 import Notification from '../Notification/Notification';
-import './container.css';
+import './App.css';
 
 class Container extends React.Component {
 	render() {
