@@ -54,3 +54,10 @@ export const hideNotification = () => {
 		type: 'HIDE_NOTIFICATION'
 	}
 };
+
+export const helloWorld = (data) => {
+	return {
+		type: 'HELLO_WORLD',
+		message: data.message
+	}
+};
