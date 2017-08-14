@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { BrowserRouter, Route } from 'react-router-dom';
 import rootSaga from './redux/sagas'
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
@@ -13,4 +14,25 @@ let store = createStore(rootReducer, window.devToolsExtension ? window.devToolsE
 
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+class Test extends React.Component {
+	render() {
+		return (
+			<div>THIS IS A TEST ROUTE!</div>
+		)
+	}
+}
+
+// TO DO, 2nd route is 404
+
+ReactDOM.render(
+	<Provider store={store}>
+		<BrowserRouter>
+			<div>
+				<header>THE HEADER GOES HERE!</header>
+				<Route path="/" component={App} />
+				<Route path="/test" component={Test} />
+			</div>
+		</BrowserRouter>
+	</Provider>, 
+	document.getElementById('root')
+);
