@@ -6,6 +6,16 @@ import { mouseDown, mouseUp, editText, deleteTextBox } from '../../redux/actions
 import './TextBox.css';
 
 class TextBox extends React.Component {	
+	constructor(props){
+		super(props);
+		this.state = {
+			styles: {
+		      top: '214 px',
+		      left: '12 px'
+		    }
+		}
+	}
+
 	textBoxMouseDown(e){
 		if (e.target.classList.contains('drag')){
 			this.props.onTextBoxMouseDown(e);
@@ -65,10 +75,20 @@ class TextBox extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+	  this.setState({
+	    styles: {
+	      top: this.props.top + 'px',
+	      left: this.props.left + 'px'
+	    }
+	  })
+	}
+
 	render() {
-		const { textboxId } = this.props;
+		const { textboxId, text } = this.props;
 	    return (
 	    	<div 	
+	    		style={this.state.styles}
 	    		className="drag"
 	    		onMouseDown={e => this.textBoxMouseDown(e)}
 	    		onMouseMove={e => this.textBoxMouseMove(e)}
@@ -79,7 +99,7 @@ class TextBox extends React.Component {
 	    			contentEditable="true"
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
-	    		></div>
+	    		>{text}</div>
 	    		<DeleteButton parentId={textboxId}/>
 	    		<div id="textBoxName">TextBox {textboxId}</div>
 	    	</div>

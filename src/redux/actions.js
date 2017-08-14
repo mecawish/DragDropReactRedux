@@ -67,3 +67,19 @@ export const removeHello = () => {
 		type: 'REMOVE_HELLO',
 	}
 };
+
+export const loadTextboxes = () => {
+	return {
+		type: 'LOAD_TEXTBOXES',
+	}
+};
+
+export const displayTextboxes = (data) => {
+	return {
+		type: 'DISPLAY_TEXTBOXES',
+		id: data.id,
+		left: data.styleLeft,
+		top: data.styleTop,
+		text: data.inputText
+	}
+};

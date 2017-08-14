@@ -1,14 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TextBox from '../TextBox/TextBox';
-import { showButtons } from '../../redux/actions';
+import { showButtons, loadTextboxes } from '../../redux/actions';
 import './DropZone.css';
 
 class DropZone extends React.Component {
 	render() {
 		const textboxes = this.props.textboxes.map((textbox) => {
 			return (
-				<TextBox key={textbox.id} textboxId={textbox.id}/>
+				<TextBox 	key={textbox.id} 
+							textboxId={textbox.id} 
+							text={textbox.text}
+							top={textbox.top}
+							left={textbox.left}
+				/>
 			);
 		});
 
@@ -18,6 +23,10 @@ class DropZone extends React.Component {
 				{textboxes}
 			</div>
 		);
+	}
+
+	componentDidMount() {
+		this.props.loadTextboxes();
 	}
 
 	componentDidUpdate() {
@@ -34,7 +43,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps= dispatch => {
   return {
-    showButtons: () => dispatch(showButtons())
+    showButtons: () => dispatch(showButtons()),
+    loadTextboxes: () => dispatch(loadTextboxes())
   };
 }
 

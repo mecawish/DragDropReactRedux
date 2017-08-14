@@ -14,6 +14,16 @@ const textBoxesReducer = (state = [], action) => {
 			return [
 				...state.filter(textbox => { return textbox.id !== action.id })
 			]
+		case 'DISPLAY_TEXTBOXES':
+			return [
+				...state,
+				{
+					id: action.id,
+					left: action.left,
+					top: action.top,
+					text: action.text
+				}
+			]
 		default:
 			return state;
 	}
