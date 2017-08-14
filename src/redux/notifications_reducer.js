@@ -17,6 +17,11 @@ const notificationsReducer = (state = { value: false, text: "", message: "" }, a
 				...state,
 				message: action.message
 			}
+		case 'REMOVE_HELLO':
+			return {
+				...state,
+				message: ""
+			}
 		default:
 			return state;
 	}

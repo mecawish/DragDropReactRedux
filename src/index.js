@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import rootSaga from './redux/sagas'
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
@@ -29,6 +29,8 @@ ReactDOM.render(
 		<BrowserRouter>
 			<div>
 				<header>THE HEADER GOES HERE!</header>
+				<div><Link to='/'>HOME</Link></div>
+				<div><Link to='/test'>TEST</Link></div>
 				<Route path="/" component={App} />
 				<Route path="/test" component={Test} />
 			</div>

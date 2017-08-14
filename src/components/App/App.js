@@ -6,15 +6,15 @@ import UndoRedo from '../UndoRedo/UndoRedo';
 import Notification from '../Notification/Notification';
 import './App.css';
 
-class Container extends React.Component {
+class App extends React.Component {
 	render() {
 		const { showUndoRedo, notification, text, message, testAction } = this.props;
 
 	    return (
 	    	<div>
-	    		<div className="test">{message}</div>
-	    		<a className="test" onClick={testAction}>Knock Knock</a>
-				<AddTextBoxButton />			
+				<AddTextBoxButton />
+				<button className="test" onClick={testAction}>Knock Knock</button>
+				<span className="test">{message}</span>		
 				{ notification && <Notification text={text} /> }
 				{ showUndoRedo ? <UndoRedo /> : <div className="placeHolder"></div> }
 				<DropZone />
@@ -33,7 +33,7 @@ const mapStateToProps = state => {
 }
 
 const testAction = () => ({
-  type: "TEST_ACTION"
+  type: "TEST_API"
 })
 
-export default connect(mapStateToProps, { testAction })(Container);
+export default connect(mapStateToProps, { testAction })(App);

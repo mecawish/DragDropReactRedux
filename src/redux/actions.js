@@ -1,4 +1,4 @@
-let textBoxId = 0;
+let textBoxId = 1;
 export const addTextBox = () => {
 	return {
 		type: 'ADD_TEXTBOX',
@@ -59,5 +59,11 @@ export const helloWorld = (data) => {
 	return {
 		type: 'HELLO_WORLD',
 		message: data.message
+	}
+};
+
+export const removeHello = () => {
+	return {
+		type: 'REMOVE_HELLO',
 	}
 };
