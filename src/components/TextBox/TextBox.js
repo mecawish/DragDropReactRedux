@@ -81,7 +81,7 @@ class TextBox extends React.Component {
 	      top: this.props.top + 'px',
 	      left: this.props.left + 'px'
 	    }
-	  })
+	  });
 	}
 
 	render() {
@@ -96,7 +96,6 @@ class TextBox extends React.Component {
 	    	>
 	    		<div
 	    			className="editText"
-	    			contentEditable="true"
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
 	    		>{text}</div>
