@@ -76,12 +76,14 @@ class TextBox extends React.Component {
 	}
 
 	componentDidMount() {
-	  this.setState({
-	    styles: {
-	      top: this.props.top + 'px',
-	      left: this.props.left + 'px'
-	    }
-	  });
+		this.setState({
+	    	styles: {
+	      		top: this.props.top + 'px',
+	      		left: this.props.left + 'px'
+	    	}
+	  	});
+
+		this.refs.editText.setAttribute('contenteditable', true);
 	}
 
 	render() {
@@ -95,6 +97,7 @@ class TextBox extends React.Component {
 	    		onMouseUp={e => this.textBoxMouseUp(e)}
 	    	>
 	    		<div
+	    			ref="editText"
 	    			className="editText"
 	    			spellCheck="false"
 	    			onBlur={e => this.props.onTextChange(e.target.innerHTML)}
