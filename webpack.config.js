@@ -14,10 +14,10 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/assets/',
         filename: 'bundle.js'
     },
     devServer: {
+        historyApiFallback: true,
         contentBase: './src',
     },
     plugins: [

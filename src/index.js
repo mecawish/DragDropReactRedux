@@ -16,23 +16,26 @@ sagaMiddleware.run(rootSaga);
 
 class Test extends React.Component {
 	render() {
-		return (
-			<div>THIS IS A TEST ROUTE!</div>
-		)
+		return <div>THIS IS A TEST ROUTE!</div>
 	}
 }
 
-// TO DO, 2nd route is 404
+class Sample extends React.Component {
+	render() {
+		return <div>THIS IS A SAMPLE ROUTE!</div>
+	}
+}
+
+// TO DO, other routes aside from "/" are 404
 
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<div>
-				<header>THE HEADER GOES HERE!</header>
-				<div><Link to='/'>HOME</Link></div>
-				<div><Link to='/test'>TEST</Link></div>
+				<div>HEADER GOES HERE</div>
 				<Route path="/" component={App} />
 				<Route path="/test" component={Test} />
+				<Route path="/sample" component={Sample} />
 			</div>
 		</BrowserRouter>
 	</Provider>, 
