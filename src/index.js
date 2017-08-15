@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import rootSaga from './redux/sagas'
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
@@ -26,18 +26,31 @@ class Sample extends React.Component {
 	}
 }
 
-// TO DO, other routes aside from "/" are 404
+class Header extends React.Component {
+	render() {
+		return (
+			<div>
+				<div>HEADER GOES HERE...</div>
+				<div><Link to="/">Home</Link></div>
+	        	<div><Link to="/test">Test</Link></div>
+	        	<div><Link to="/sample">Sample</Link></div>
+	        </div>
+		);
+	}
+}
 
 ReactDOM.render(
 	<Provider store={store}>
-		<BrowserRouter>
+		<Router>
 			<div>
-				<div>HEADER GOES HERE</div>
-				<Route path="/" component={App} />
-				<Route path="/test" component={Test} />
-				<Route path="/sample" component={Sample} />
+				<Header />
+				<Switch>
+					<Route exact path="/" component={App} />
+					<Route path="/test" component={Test} />
+					<Route path="/sample" component={Sample} />
+				</Switch>
 			</div>
-		</BrowserRouter>
+		</Router>
 	</Provider>, 
 	document.getElementById('root')
 );
